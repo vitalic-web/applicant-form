@@ -2,7 +2,23 @@ const applicantForm = {
   title: 'Анкета соискателя',
   personalData: {
     name: 'Личные данные',
-    inputs: ['Имя', 'Фамилия', 'Электронная почта'],
+    inputs: [
+      {
+        name: 'Имя',
+        id: 'name',
+        type: 'text'
+      },
+      {
+        name: 'Фамилия',
+        id: 'surname',
+        type: 'text'
+      },
+      {
+        name: 'Электронная почта',
+        id: 'email',
+        type: 'email'
+      },
+    ],
     buttonName: 'Загрузить резюме'
   },
   gender: {
