@@ -22,12 +22,27 @@ const applicantForm = {
     buttonName: 'Загрузить резюме'
   },
   gender: {
-    name: 'Пол',
-    inputs: ['Мужской', 'Женский'],
+    name: 'Пол *',
+    inputs: [
+      {
+        name: 'Мужской',
+        id: 'male',
+        type: 'radio'
+      },
+      {
+        name: 'Женский',
+        id: 'female',
+        type: 'radio'
+      },
+    ],
   },
   github: {
     name: 'Github',
-    input: 'Вставьте ссылку на Github',
+    input: {
+      name: 'Вставьте ссылку на Github',
+      id: 'git',
+      type: 'url'
+    }
   },
   buttonName: 'Отправить'
 };
