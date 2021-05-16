@@ -1,13 +1,18 @@
 import { useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectPersonalDataBtn, setUserFile } from './personalDataBtnSlice';
 import './PersonalDataBtn.css';
 import plusImg from '../../images/plus.svg';
 import addFileImg from '../../images/addFile.svg';
 import deleteAddedFileImg from '../../images/deleteAddedFile.svg';
 
 function PersonalDataBtn() {
+  const personalDataBtn = useSelector(selectPersonalDataBtn);
+  const dispatch = useDispatch();
   const fileInput = useRef(null);
   const [inputFile, setInputFile] = useState('');
   const [isActiveDeleteFile, setIsActiveDeleteFile] = useState(false);
+  console.log(personalDataBtn);
 
   const getFile = () => {
     const { current } = fileInput;
@@ -22,6 +27,12 @@ function PersonalDataBtn() {
   const handleOnUpload = () => {
     const file = getFile();
     setInputFile(file);
+    dispatch(setUserFile(true));
+  };
+
+  const deleteFile = () => {
+    setInputFile('');
+    dispatch(setUserFile(false));
   };
 
   return (
@@ -41,7 +52,7 @@ function PersonalDataBtn() {
               className={`PersonalDataBtn__delete-file ${!isActiveDeleteFile ? "PersonalDataBtn__delete-file_hidden" : ""}`}
               src={deleteAddedFileImg}
               alt="удалить файл"
-              onClick={() => setInputFile('')} />
+              onClick={deleteFile} />
           </div>
           :
           <div className="PersonalDataBtn">
