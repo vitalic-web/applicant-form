@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import applicantFormReducer from '../features/applicantForm/applicantFormSlice';
 import personalDataReducer from '../features/personalData/personalDataSlice';
+import personalDataBtnReducer from '../features/personalDataBtn/personalDataBtnSlice';
+import genderDataReducer from '../features/genderData/genderDataSlice';
+import githubDataReducer from '../features/githubData/githubDataSlice';
+import privacyCheckboxReducer from '../features/privacyCheckbox/privacyCheckboxSlice';
 
 export default configureStore({
   reducer: {
-    applicantForm: applicantFormReducer,
     personalData: personalDataReducer,
+    personalDataBtn: personalDataBtnReducer,
+    genderData: genderDataReducer,
+    githubData: githubDataReducer,
+    privacyCheckbox: privacyCheckboxReducer,
   },
 });

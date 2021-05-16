@@ -4,7 +4,7 @@ import './PersonalData.css';
 import { applicantForm } from '../../utils/constants';
 import SubTitle from '../../commonComponents/SubTitle/SubTitle';
 import PersonalDataField from '../../commonComponents/PersonalDataField/PersonalDataField';
-import PersonalDataBtn from '../../commonComponents/PersonalDataBtn/PersonalDataBtn';
+import PersonalDataBtn from '../personalDataBtn/PersonalDataBtn';
 
 function PersonalData() {
   const dispatch = useDispatch();

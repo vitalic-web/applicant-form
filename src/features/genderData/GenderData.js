@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectGenderData, setGender } from './genderDataSlice';
 import './GenderData.css';
 import { applicantForm } from '../../utils/constants';
-import SubTitle from '../SubTitle/SubTitle';
+import SubTitle from '../../commonComponents/SubTitle/SubTitle';
 
 function GenderData() {
   const [activeRadioInput, setActiveRadioInput] = useState('');
+  const genderData = useSelector(selectGenderData);
+  const dispatch = useDispatch();
+  console.log(genderData);
 
   const handleOnchange = evt => {
     setActiveRadioInput(evt.target.value);
+    dispatch(setGender(evt.target.value));
+    console.log(evt.target.value);
   };
 
   return (
