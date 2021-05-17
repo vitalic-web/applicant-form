@@ -1,0 +1,43 @@
+.PersonalDataField {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 0;
+  position: relative;
+}
+
+.PersonalDataField__input {
+  height: 40px;
+  color: #595959;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  border: 1px solid #D9D9D9;
+  border-radius: 2px;
+  padding: 0 0 0 12px;
+  outline: none;
+}
+
+.PersonalDataField__input.PersonalDataField__input_error {
+  color: #F5222D;
+  border: 1px solid #F5222D;
+}
+
+.PersonalDataField__label {
+  margin: 0 0 2px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.PersonalDataField__error-message {
+  position: absolute;
+  left: 0;
+  bottom: -22px;
+  color: #F5222D;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
