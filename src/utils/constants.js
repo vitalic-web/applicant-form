@@ -47,6 +47,19 @@ const applicantForm = {
   buttonName: 'Отправить'
 };
 
+const validationErrorMessages = {
+  name: 'В имени могут быть только буквы',
+  surname: 'В фамилии могут быть только буквы',
+  email: 'Пожалуйста укажите электронную почту',
+  file: 'загружайте файл размером не более 16 mb',
+  gender: 'укажите пол',
+  git: 'Проверьте правильность ссылки'
+};
+
+const fileSize = 16;
+
 export {
   applicantForm,
+  validationErrorMessages,
+  fileSize
 };

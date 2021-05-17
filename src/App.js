@@ -2,40 +2,68 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import { applicantForm } from './utils/constants';
-import PersonalData from './features/personalData/PersonalData';
+import SubTitle from './commonComponents/SubTitle/SubTitle';
+import PersonalDataField from './features/personalDataField/PersonalDataField';
+import AddFileBtn from './features/addFileBtn/AddFileBtn';
 import GenderData from './features/genderData/GenderData';
-import GithubData from './features/githubData/GithubData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
 
 function App() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const formData = useSelector(state => state);
-  console.log(formData);
+  console.log('isFormComplete', isFormComplete);
+  // console.log(formData);
 
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log('submit');
   };
 
-  useEffect(() => {
-    const isPersonalDataComplete = Boolean(formData.personalData.name && formData.personalData.surname && formData.personalData.email);
-    const isFileUploaded = formData.personalDataBtn.isFileUploaded;
-    const isGenderChecked = formData.genderData.isFemale || formData.genderData.isMale;
-    const isGithubLink = Boolean(formData.githubData.githubLink);
-    const isAcceptPrivacy = formData.privacyCheckbox.isAcceptPrivacy;
-    const test = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isGithubLink && isAcceptPrivacy);
+  const submitButtonStyle = `SubmitButton ${isFormComplete ? 'SubmitButton_active' : ''}`;
 
-    console.log('test', test);
+  useEffect(() => {
+    const isPersonalDataComplete = Boolean(
+      (formData.personalDataField.name && formData.personalDataField.nameValidity) &&
+      (formData.personalDataField.surname && formData.personalDataField.surnameValidity) &&
+      (formData.personalDataField.email && formData.personalDataField.emailValidity) &&
+      (formData.personalDataField.git && formData.personalDataField.gitValidity));
+    const isFileUploaded = formData.addFileBtn.isFileUploaded && formData.addFileBtn.fileUploadedValidity;
+    const isGenderChecked = formData.genderData.isFemale || formData.genderData.isMale;
+    const isAcceptPrivacy = formData.privacyCheckbox.isAcceptPrivacy;
+    const isFormValidation = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isAcceptPrivacy);
+
+    setIsFormComplete(isFormValidation);
   }, [formData]);
 
   return (
     <form className="App" onSubmit={handleSubmit}>
       <h1 className="Title">{applicantForm.title}</h1>
-      <PersonalData />
+      <div className="PersonalData">
+        <SubTitle name={applicantForm.personalData.name} />
+        {applicantForm.personalData.inputs.map((input, index) =>
+          <PersonalDataField
+            key={index}
+            name={input.name}
+            id={input.id}
+            type={input.type}
+          />
+        )}
+        <AddFileBtn />
+      </div>
       <GenderData />
-      <GithubData />
+      <SubTitle name={applicantForm.github.name} />
+      <PersonalDataField
+        name={applicantForm.github.input.name}
+        id={applicantForm.github.input.id}
+        type={applicantForm.github.input.type}
+        github={true}
+      />
       <PrivacyCheckbox />
-      <button className="SubmitButton" type="submit" disabled={false}>{applicantForm.buttonName}</button>
+      <button
+        className={submitButtonStyle}
+        type="submit"
+        disabled={isFormComplete ? false : true}
+      >{applicantForm.buttonName}</button>
     </form>
   );
 }
