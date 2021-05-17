@@ -54,9 +54,12 @@ const validationErrorMessages = {
   file: 'загружайте файл размером не более 16 mb',
   gender: 'укажите пол',
   git: 'Проверьте правильность ссылки'
-}
+};
+
+const fileSize = 16;
 
 export {
   applicantForm,
   validationErrorMessages,
+  fileSize
 };
