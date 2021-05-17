@@ -32,7 +32,7 @@ function PersonalDataField({ name, id, type, github }) {
     }
   };
 
-  const regExpForInput = getRegExpForInput(id);
+  const isValidationError = !personalDataField[`${id}Validity`];
 
   return (
     <div className="PersonalDataField">
@@ -40,15 +40,15 @@ function PersonalDataField({ name, id, type, github }) {
       <input
         onChange={getInputData}
         value={personalDataField[id]}
-        className="PersonalDataField__input PersonalDataField__input_error"
+        className={`PersonalDataField__input ${isValidationError ? 'PersonalDataField__input_error' : ''}`}
         type={type}
         id={id}
         name={id}
         placeholder={name}
         autoComplete="off"
-        pattern={regExpForInput}
+        pattern={getRegExpForInput(id)}
       />
-      <span className="PersonalDataField__error-message">{!personalDataField[`${id}Validity`] ? validationErrorMessages[id] : ""}</span>
+      <span className="PersonalDataField__error-message">{isValidationError ? validationErrorMessages[id] : ''}</span>
     </div>
   )
 };
