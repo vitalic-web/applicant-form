@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const isPersonalDataComplete = Boolean(formData.personalDataField.name && formData.personalDataField.surname && formData.personalDataField.email && formData.personalDataField.git);
-    const isFileUploaded = formData.personalDataBtn.isFileUploaded;
+    const isFileUploaded = formData.addFileBtn.isFileUploaded;
     const isGenderChecked = formData.genderData.isFemale || formData.genderData.isMale;
     const isAcceptPrivacy = formData.privacyCheckbox.isAcceptPrivacy;
     const test = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isAcceptPrivacy);
