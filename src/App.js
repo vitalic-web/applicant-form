@@ -4,7 +4,7 @@ import './App.css';
 import { applicantForm } from './utils/constants';
 import SubTitle from './commonComponents/SubTitle/SubTitle';
 import PersonalDataField from './features/personalDataField/PersonalDataField';
-import PersonalDataBtn from './features/personalDataBtn/PersonalDataBtn';
+import AddFileBtn from './features/addFileBtn/AddFileBtn';
 import GenderData from './features/genderData/GenderData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
 
@@ -41,7 +41,7 @@ function App() {
             type={input.type}
           />
         )}
-        <PersonalDataBtn />
+        <AddFileBtn />
       </div>
       <GenderData />
       <SubTitle name={applicantForm.github.name} />

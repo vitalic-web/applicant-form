@@ -22,10 +22,12 @@ function PersonalDataField({ name, id, type, github }) {
         return '^[A-Za-zА-Яа-яЁё]+$';
       }
       case 'email': {
-        return '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+        // eslint-disable-next-line no-useless-escape
+        return '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
       }
       case 'git': {
-        return 'http(s?)(:\/\/)((www.)?)([a-zA-z0-9\-_]+)(.com)(\/[^\s]*)?'
+        // eslint-disable-next-line no-useless-escape
+        return 'http(s?)(:\/\/)((www.)?)([a-zA-z0-9\-_]+)(.com)(\/[^\s]*)?';
       }
       default:
         throw new Error();
