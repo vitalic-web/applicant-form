@@ -1,0 +1,80 @@
+.PopupPrivacy {
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: rgba(00, 00, 00, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+  -moz-transition: all 0.7s;
+}
+
+.PopupPrivacy.PopupPrivacy_active {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  -moz-transition: opacity 0.7s;
+}
+
+.PopupPrivacy__container {
+  width: calc(340/375 * 100%);
+  max-width: 340px;
+  height: 576px;
+  color: #262626;
+  background: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  align-self: center;
+}
+
+.PopupPrivacy__inner {
+  display: flex;
+  flex-direction: column;
+  width: calc(308/340 * 100%);
+  height: 508px;
+  margin: 0 0 16px;
+  overflow: overlay;
+}
+
+.PopupPrivacy__inner-title {
+  margin: 16px 0 32px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.PopupPrivacy__text-title {
+  margin: 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 38px;
+}
+
+.PopupPrivacy__text {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 38px;
+}
+
+.PopupPrivacy__close-icon {
+  position: absolute;
+  top: 20.5px;
+  right: 20.5px;
+}
+
+.PopupPrivacy__close-icon:hover {
+  cursor: pointer;
+}
