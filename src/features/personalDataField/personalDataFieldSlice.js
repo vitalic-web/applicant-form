@@ -17,15 +17,20 @@ export const personalDataFieldSlice = createSlice({
       const { name, data } = action.payload;
       state[name] = data;
     },
-
     setValidity: (state, action) => {
       const { name, validity } = action.payload;
       state[`${name}Validity`] = validity;
+    },
+    clearAll: (state) => {
+      state.name = '';
+      state.surname = '';
+      state.email = '';
+      state.git = '';
     }
   },
 });
 
-export const { setInputData, setValidity } = personalDataFieldSlice.actions;
+export const { setInputData, setValidity, clearAll } = personalDataFieldSlice.actions;
 
 export const selectPersonalDataField = state => state.personalDataField;
 export default personalDataFieldSlice.reducer;

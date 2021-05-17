@@ -7,15 +7,16 @@ import PersonalDataField from './features/personalDataField/PersonalDataField';
 import AddFileBtn from './features/addFileBtn/AddFileBtn';
 import GenderData from './features/genderData/GenderData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
+import Popup from './commonComponents/Popup/Popup';
 
 function App() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const formData = useSelector(state => state);
-  console.log('isFormComplete', isFormComplete);
-  // console.log(formData);
+  const [isActivePopup, setIsActivePopup] = useState(false);
 
   const handleSubmit = evt => {
     evt.preventDefault();
+    setIsActivePopup(true);
     console.log('submit');
   };
 
@@ -37,6 +38,11 @@ function App() {
 
   return (
     <form className="App" onSubmit={handleSubmit}>
+      <Popup
+        userName={formData.personalDataField.name}
+        isActivePopup={isActivePopup}
+        setIsActivePopup={setIsActivePopup}
+      />
       <h1 className="Title">{applicantForm.title}</h1>
       <div className="PersonalData">
         <SubTitle name={applicantForm.personalData.name} />

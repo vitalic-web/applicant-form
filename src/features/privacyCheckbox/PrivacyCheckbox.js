@@ -5,7 +5,6 @@ import './PrivacyCheckbox.css';
 function PrivacyCheckbox() {
   const privacyCheckboxData = useSelector(selectPrivacyCheckbox);
   const dispatch = useDispatch();
-  console.log(privacyCheckboxData);
 
   const handleClickedCheckbox = () => dispatch(setIsAcceptPrivacy());
 
