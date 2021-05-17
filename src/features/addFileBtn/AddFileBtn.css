@@ -1,14 +1,14 @@
-.PersonalDataBtn {
+.AddFileBtn {
   margin: 24px 0 0;
   display: flex;
   background: #F5F5F5;
 }
 
-.PersonalDataBtn__input {
+.AddFileBtn__input {
   display: none;
 }
 
-.PersonalDataBtn__label {
+.AddFileBtn__label {
   border: 1px dashed #D9D9D9;
   border-radius: 2px;
   width: 100%;
@@ -18,11 +18,11 @@
   /* justify-content: center; */
 }
 
-.PersonalDataBtn__image {
+.AddFileBtn__image {
   margin: 0 0 0 52px;
 }
 
-.PersonalDataBtn__text {
+.AddFileBtn__text {
   margin: 0 0 0 40px;
   padding: 0;
   color: #595959;
@@ -32,7 +32,7 @@
   line-height: 22px;
 }
 
-.PersonalDataBtn__file-name {
+.AddFileBtn__file-name {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -41,33 +41,33 @@
   margin: 0 0 0 10px;
 }
 
-.PersonalDataBtn__added-file {
+.AddFileBtn__added-file {
   margin: 24px 0 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.PersonalDataBtn__container {
+.AddFileBtn__container {
   display: flex;
 }
 
-.PersonalDataBtn__added-file:hover {
+.AddFileBtn__added-file:hover {
   background: #E6F7FF;
 }
 
-.PersonalDataBtn__add-logo {
+.AddFileBtn__add-logo {
   margin: 0 0 0 6px;
 }
 
-.PersonalDataBtn__delete-file {
+.AddFileBtn__delete-file {
   margin: 0 7px 0 0;
 }
 
-.PersonalDataBtn__delete-file:hover {
+.AddFileBtn__delete-file:hover {
   cursor: pointer;
 }
 
-.PersonalDataBtn__delete-file.PersonalDataBtn__delete-file_hidden {
+.AddFileBtn__delete-file.AddFileBtn__delete-file_hidden {
   display: none;
 }

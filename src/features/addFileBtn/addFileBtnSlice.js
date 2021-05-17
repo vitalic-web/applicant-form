@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const personalDataBtnSlice = createSlice({
+export const addFileBtnSlice = createSlice({
   name: 'personalDataBtn',
   initialState: {
     isFileUploaded: false,
@@ -12,7 +12,7 @@ export const personalDataBtnSlice = createSlice({
   },
 });
 
-export const { setUserFile } = personalDataBtnSlice.actions;
+export const { setUserFile } = addFileBtnSlice.actions;
 
-export const selectPersonalDataBtn = state => state.personalDataBtn;
-export default personalDataBtnSlice.reducer;
+export const selectAddFileBtn = state => state.addFileBtn;
+export default addFileBtnSlice.reducer;
