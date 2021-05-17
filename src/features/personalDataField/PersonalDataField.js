@@ -6,7 +6,6 @@ import { validationErrorMessages } from '../../utils/constants';
 function PersonalDataField({ name, id, type, github }) {
   const dispatch = useDispatch();
   const personalDataField = useSelector(selectPersonalDataField);
-  // console.log('personalDataField', personalDataField);
 
   const getInputData = evt => {
     dispatch(setInputData({ name: evt.target.name, data: evt.target.value }));

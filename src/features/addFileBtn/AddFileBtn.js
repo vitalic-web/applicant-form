@@ -15,8 +15,6 @@ function AddFileBtn() {
   const fileInput = useRef(null);
   const [inputFile, setInputFile] = useState('');
   const [isActiveDeleteFile, setIsActiveDeleteFile] = useState(false);
-  console.log('addFileBtnData', addFileBtnData);
-  console.log('inputFileSize', Math.floor(inputFile.size / 1000000));
 
   const getFile = () => {
     const { current } = fileInput;

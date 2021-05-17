@@ -10,7 +10,6 @@ function GenderData() {
   const genderData = useSelector(selectGenderData);
   const dispatch = useDispatch();
   const isGenderChecked = genderData.isFemale || genderData.isMale;
-  console.log(genderData);
 
   const handleOnchange = evt => {
     setActiveRadioInput(evt.target.value);
