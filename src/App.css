@@ -18,6 +18,10 @@
   line-height: 38px;
 }
 
+.PersonalData {
+  margin: 0 0 48px;
+}
+
 .SubmitButton {
   background: #E8E8E8;
   border: 1px solid #D9D9D9;
@@ -31,6 +35,8 @@
   line-height: 24px;
 }
 
-.PersonalData {
-  margin: 0 0 48px;
+.SubmitButton.SubmitButton_active {
+  background: #1890FF;
+  border: 1px solid #1890FF;
+  color: #FFFFFF;
 }

@@ -11,21 +11,28 @@ import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
 function App() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const formData = useSelector(state => state);
-  console.log(formData);
+  console.log('isFormComplete', isFormComplete);
+  // console.log(formData);
 
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log('submit');
   };
 
+  const submitButtonStyle = `SubmitButton ${isFormComplete ? 'SubmitButton_active' : ''}`;
+
   useEffect(() => {
-    const isPersonalDataComplete = Boolean(formData.personalDataField.name && formData.personalDataField.surname && formData.personalDataField.email && formData.personalDataField.git);
-    const isFileUploaded = formData.addFileBtn.isFileUploaded;
+    const isPersonalDataComplete = Boolean(
+      (formData.personalDataField.name && formData.personalDataField.nameValidity) &&
+      (formData.personalDataField.surname && formData.personalDataField.surnameValidity) &&
+      (formData.personalDataField.email && formData.personalDataField.emailValidity) &&
+      (formData.personalDataField.git && formData.personalDataField.gitValidity));
+    const isFileUploaded = formData.addFileBtn.isFileUploaded && formData.addFileBtn.fileUploadedValidity;
     const isGenderChecked = formData.genderData.isFemale || formData.genderData.isMale;
     const isAcceptPrivacy = formData.privacyCheckbox.isAcceptPrivacy;
-    const test = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isAcceptPrivacy);
+    const isFormValidation = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isAcceptPrivacy);
 
-    console.log('test', test);
+    setIsFormComplete(isFormValidation);
   }, [formData]);
 
   return (
@@ -52,7 +59,11 @@ function App() {
         github={true}
       />
       <PrivacyCheckbox />
-      <button className="SubmitButton" type="submit" disabled={false}>{applicantForm.buttonName}</button>
+      <button
+        className={submitButtonStyle}
+        type="submit"
+        disabled={isFormComplete ? false : true}
+      >{applicantForm.buttonName}</button>
     </form>
   );
 }
