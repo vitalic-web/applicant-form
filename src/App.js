@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import { applicantForm } from './utils/constants';
-import PersonalData from './features/personalData/PersonalData';
+import SubTitle from './commonComponents/SubTitle/SubTitle';
+import PersonalDataField from './features/personalDataField/PersonalDataField';
+import PersonalDataBtn from './features/personalDataBtn/PersonalDataBtn';
 import GenderData from './features/genderData/GenderData';
-import GithubData from './features/githubData/GithubData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
 
 function App() {
@@ -18,12 +19,11 @@ function App() {
   };
 
   useEffect(() => {
-    const isPersonalDataComplete = Boolean(formData.personalData.name && formData.personalData.surname && formData.personalData.email);
+    const isPersonalDataComplete = Boolean(formData.personalDataField.name && formData.personalDataField.surname && formData.personalDataField.email && formData.personalDataField.git);
     const isFileUploaded = formData.personalDataBtn.isFileUploaded;
     const isGenderChecked = formData.genderData.isFemale || formData.genderData.isMale;
-    const isGithubLink = Boolean(formData.githubData.githubLink);
     const isAcceptPrivacy = formData.privacyCheckbox.isAcceptPrivacy;
-    const test = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isGithubLink && isAcceptPrivacy);
+    const test = Boolean(isPersonalDataComplete && isFileUploaded && isGenderChecked && isAcceptPrivacy);
 
     console.log('test', test);
   }, [formData]);
@@ -31,9 +31,26 @@ function App() {
   return (
     <form className="App" onSubmit={handleSubmit}>
       <h1 className="Title">{applicantForm.title}</h1>
-      <PersonalData />
+      <div className="PersonalData">
+        <SubTitle name={applicantForm.personalData.name} />
+        {applicantForm.personalData.inputs.map((input, index) =>
+          <PersonalDataField
+            key={index}
+            name={input.name}
+            id={input.id}
+            type={input.type}
+          />
+        )}
+        <PersonalDataBtn />
+      </div>
       <GenderData />
-      <GithubData />
+      <SubTitle name={applicantForm.github.name} />
+      <PersonalDataField
+        name={applicantForm.github.input.name}
+        id={applicantForm.github.input.id}
+        type={applicantForm.github.input.type}
+        github={true}
+      />
       <PrivacyCheckbox />
       <button className="SubmitButton" type="submit" disabled={false}>{applicantForm.buttonName}</button>
     </form>
