@@ -7,15 +7,18 @@ import PersonalDataField from './features/personalDataField/PersonalDataField';
 import AddFileBtn from './features/addFileBtn/AddFileBtn';
 import GenderData from './features/genderData/GenderData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
+import Popup from './commonComponents/Popup/Popup';
+import PopupPrivacy from './commonComponents/PopupPrivacy/PopupPrivacy';
 
 function App() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const formData = useSelector(state => state);
-  console.log('isFormComplete', isFormComplete);
-  // console.log(formData);
+  const [isActivePopup, setIsActivePopup] = useState(false);
+  const [isActivePopupPrivacy, setIsActivePopupPrivacy] = useState(false);
 
   const handleSubmit = evt => {
     evt.preventDefault();
+    setIsActivePopup(true);
     console.log('submit');
   };
 
@@ -37,6 +40,15 @@ function App() {
 
   return (
     <form className="App" onSubmit={handleSubmit}>
+      <Popup
+        userName={formData.personalDataField.name}
+        isActivePopup={isActivePopup}
+        setIsActivePopup={setIsActivePopup}
+      />
+      <PopupPrivacy
+        isActivePopup={isActivePopupPrivacy}
+        setIsActivePopupPrivacy={setIsActivePopupPrivacy}
+      />
       <h1 className="Title">{applicantForm.title}</h1>
       <div className="PersonalData">
         <SubTitle name={applicantForm.personalData.name} />
@@ -58,7 +70,7 @@ function App() {
         type={applicantForm.github.input.type}
         github={true}
       />
-      <PrivacyCheckbox />
+      <PrivacyCheckbox setIsActivePopupPrivacy={setIsActivePopupPrivacy} />
       <button
         className={submitButtonStyle}
         type="submit"

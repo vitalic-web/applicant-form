@@ -8,11 +8,14 @@ export const privacyCheckboxSlice = createSlice({
   reducers: {
     setIsAcceptPrivacy: (state) => {
       state.isAcceptPrivacy = !state.isAcceptPrivacy;
+    },
+    checkPrivacy: (state) => {
+      state.isAcceptPrivacy = true;
     }
   },
 });
 
-export const { setIsAcceptPrivacy } = privacyCheckboxSlice.actions;
+export const { setIsAcceptPrivacy, checkPrivacy } = privacyCheckboxSlice.actions;
 
 export const selectPrivacyCheckbox = state => state.privacyCheckbox;
 export default privacyCheckboxSlice.reducer;

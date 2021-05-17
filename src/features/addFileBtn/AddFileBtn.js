@@ -52,7 +52,7 @@ function AddFileBtn() {
   return (
     <>
       {
-        inputFile
+        addFileBtnData.isFileUploaded
           ?
           <div
             className={addFileBtnClasses.addedFile}

@@ -2,12 +2,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectPrivacyCheckbox, setIsAcceptPrivacy } from './privacyCheckboxSlice';
 import './PrivacyCheckbox.css';
 
-function PrivacyCheckbox() {
+function PrivacyCheckbox({ setIsActivePopupPrivacy }) {
   const privacyCheckboxData = useSelector(selectPrivacyCheckbox);
   const dispatch = useDispatch();
-  console.log(privacyCheckboxData);
 
   const handleClickedCheckbox = () => dispatch(setIsAcceptPrivacy());
+  const handleClick = () => setIsActivePopupPrivacy(true);
 
   return (
     <div className="PrivacyCheckbox">
@@ -22,7 +22,7 @@ function PrivacyCheckbox() {
         className="PrivacyCheckbox__label"
         htmlFor="privacy">
       </label>
-      <div className="PrivacyCheckbox__text">* Я согласен с&nbsp;<span onClick={() => console.log('click')} className="PrivacyCheckbox__link">политикой конфиденциальности</span></div>
+      <div className="PrivacyCheckbox__text">* Я согласен с&nbsp;<span onClick={handleClick} className="PrivacyCheckbox__link">политикой конфиденциальности</span></div>
     </div>
   )
 };

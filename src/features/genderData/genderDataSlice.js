@@ -4,7 +4,8 @@ export const genderDataSlice = createSlice({
   name: 'genderData',
   initialState: {
     isMale: false,
-    isFemale: false
+    isFemale: false,
+    activeInput: ''
   },
   reducers: {
     setGender: (state, action) => {
@@ -15,11 +16,19 @@ export const genderDataSlice = createSlice({
         state.isMale = false;
         state.isFemale = true;
       }
+    },
+    setActiveInput: (state, action) => {
+      state.activeInput = action.payload;
+    },
+    setNotCheckedGender: (state) => {
+      state.isMale = false;
+      state.isFemale = false;
+      state.activeInput = '';
     }
   },
 });
 
-export const { setGender } = genderDataSlice.actions;
+export const { setGender, setActiveInput, setNotCheckedGender } = genderDataSlice.actions;
 
 export const selectGenderData = state => state.genderData;
 export default genderDataSlice.reducer;
