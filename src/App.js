@@ -8,11 +8,13 @@ import AddFileBtn from './features/addFileBtn/AddFileBtn';
 import GenderData from './features/genderData/GenderData';
 import PrivacyCheckbox from './features/privacyCheckbox/PrivacyCheckbox';
 import Popup from './commonComponents/Popup/Popup';
+import PopupPrivacy from './commonComponents/PopupPrivacy/PopupPrivacy';
 
 function App() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const formData = useSelector(state => state);
   const [isActivePopup, setIsActivePopup] = useState(false);
+  const [isActivePopupPrivacy, setIsActivePopupPrivacy] = useState(false);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -43,6 +45,10 @@ function App() {
         isActivePopup={isActivePopup}
         setIsActivePopup={setIsActivePopup}
       />
+      <PopupPrivacy
+        isActivePopup={isActivePopupPrivacy}
+        setIsActivePopupPrivacy={setIsActivePopupPrivacy}
+      />
       <h1 className="Title">{applicantForm.title}</h1>
       <div className="PersonalData">
         <SubTitle name={applicantForm.personalData.name} />
@@ -64,7 +70,7 @@ function App() {
         type={applicantForm.github.input.type}
         github={true}
       />
-      <PrivacyCheckbox />
+      <PrivacyCheckbox setIsActivePopupPrivacy={setIsActivePopupPrivacy} />
       <button
         className={submitButtonStyle}
         type="submit"
