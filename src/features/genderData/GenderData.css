@@ -3,6 +3,24 @@
   margin: 24px 0 40px;
 }
 
+.GenderData__container {
+  display: flex;
+  align-items: baseline;
+}
+
+.GenderData__error-text {
+  margin: 0 0 0 8px;
+  color: #F5222D;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.GenderData__error-text.GenderData__error-text_hidden {
+  display: none;
+}
+
 .GenderData__item {
   margin: 0 40px 0 0;
 }

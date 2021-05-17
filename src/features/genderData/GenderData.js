@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectGenderData, setGender } from './genderDataSlice';
 import './GenderData.css';
-import { applicantForm } from '../../utils/constants';
+import { applicantForm, validationErrorMessages } from '../../utils/constants';
 import SubTitle from '../../commonComponents/SubTitle/SubTitle';
 
 function GenderData() {
   const [activeRadioInput, setActiveRadioInput] = useState('');
   const genderData = useSelector(selectGenderData);
   const dispatch = useDispatch();
+  const isGenderChecked = genderData.isFemale || genderData.isMale;
   console.log(genderData);
 
   const handleOnchange = evt => {
@@ -17,9 +18,14 @@ function GenderData() {
     console.log(evt.target.value);
   };
 
+  const errorClass = `GenderData__error-text ${isGenderChecked ? 'GenderData__error-text_hidden' : ''}`;
+
   return (
     <>
-      <SubTitle name={applicantForm.gender.name} />
+      <div className="GenderData__container">
+        <SubTitle name={applicantForm.gender.name} />
+        <span className={errorClass}>{validationErrorMessages.gender}</span>
+      </div>
       <div className="GenderData">
         {applicantForm.gender.inputs.map(input =>
           <div className="GenderData__item" key={input.id}>
