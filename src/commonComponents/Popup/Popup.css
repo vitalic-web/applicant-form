@@ -24,7 +24,6 @@
 
 .Popup__container {
   width: calc(340/375 * 100%);
-  max-width: 430px;
   color: #262626;
   background: #FFFFFF;
   border-radius: 10px;
@@ -49,4 +48,14 @@
   font-weight: normal;
   font-size: 20px;
   line-height: 38px;
+}
+
+@media screen and (min-width: 376px) {
+  .Popup__container {
+    width: calc(547/1440 * 100%);
+  }
+
+  .Popup__text {
+    margin: 8px 0 40px;
+  }
 }

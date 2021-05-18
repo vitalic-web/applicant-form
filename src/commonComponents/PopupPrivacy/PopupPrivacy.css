@@ -24,7 +24,6 @@
 
 .PopupPrivacy__container {
   width: calc(340/375 * 100%);
-  max-width: 340px;
   height: 576px;
   color: #262626;
   background: #FFFFFF;
@@ -77,4 +76,19 @@
 
 .PopupPrivacy__close-icon:hover {
   cursor: pointer;
+}
+@media screen and (min-width: 376px) {
+  .PopupPrivacy__container {
+    width: calc(758/1440 * 100%);
+    height: 654px;
+  }
+
+  .PopupPrivacy__inner-title {
+    margin: 40px 0 32px;
+  }
+
+  .PopupPrivacy__close-icon {
+    top: 44.5px;
+    right: 44.5px;
+  }
 }
