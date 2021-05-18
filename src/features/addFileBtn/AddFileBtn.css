@@ -83,7 +83,7 @@
 .AddFileBtn__error-text {
   position: absolute;
   left: 0;
-  bottom: -30px;
+  top: 28px;
   color: #F5222D;
   font-style: normal;
   font-weight: normal;
@@ -93,4 +93,30 @@
 
 .AddFileBtn__error-text.AddFileBtn__error-text_hidden {
   display: none;
+}
+
+@media screen and (min-width: 376px) and (max-width: 740px) {
+  .AddFileBtn {
+    width: 220px;
+  }
+}
+
+@media screen and (min-width: 741px) {
+  .AddFileBtn {
+    margin: 24px 0 0;
+    width: 256px;
+    height: 44px;
+  }
+
+  .AddFileBtn__image {
+    margin: 0 0 0 11.5px;
+  }
+
+  .AddFileBtn__error-text {
+    top: 42px;
+  }
+
+  .AddFileBtn__added-file {
+    align-items: center;
+  }
 }

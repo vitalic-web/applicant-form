@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './App.css';
 import { applicantForm } from './utils/constants';
 import SubTitle from './commonComponents/SubTitle/SubTitle';
@@ -39,44 +39,47 @@ function App() {
   }, [formData]);
 
   return (
-    <form className="App" onSubmit={handleSubmit}>
-      <Popup
-        userName={formData.personalDataField.name}
-        isActivePopup={isActivePopup}
-        setIsActivePopup={setIsActivePopup}
-      />
-      <PopupPrivacy
-        isActivePopup={isActivePopupPrivacy}
-        setIsActivePopupPrivacy={setIsActivePopupPrivacy}
-      />
-      <h1 className="Title">{applicantForm.title}</h1>
-      <div className="PersonalData">
+    <div className="Main">
+      <form className="App" onSubmit={handleSubmit}>
+        <Popup
+          userName={formData.personalDataField.name}
+          isActivePopup={isActivePopup}
+          setIsActivePopup={setIsActivePopup}
+        />
+        <PopupPrivacy
+          isActivePopup={isActivePopupPrivacy}
+          setIsActivePopupPrivacy={setIsActivePopupPrivacy}
+        />
+        <h1 className="Title">{applicantForm.title}</h1>
         <SubTitle name={applicantForm.personalData.name} />
-        {applicantForm.personalData.inputs.map((input, index) =>
-          <PersonalDataField
-            key={index}
-            name={input.name}
-            id={input.id}
-            type={input.type}
-          />
-        )}
-        <AddFileBtn />
-      </div>
-      <GenderData />
-      <SubTitle name={applicantForm.github.name} />
-      <PersonalDataField
-        name={applicantForm.github.input.name}
-        id={applicantForm.github.input.id}
-        type={applicantForm.github.input.type}
-        github={true}
-      />
-      <PrivacyCheckbox setIsActivePopupPrivacy={setIsActivePopupPrivacy} />
-      <button
-        className={submitButtonStyle}
-        type="submit"
-        disabled={isFormComplete ? false : true}
-      >{applicantForm.buttonName}</button>
-    </form>
+        <div className="PersonalData">
+          {applicantForm.personalData.inputs.map((input, index) =>
+            <PersonalDataField
+              key={index}
+              name={input.name}
+              id={input.id}
+              type={input.type}
+            />
+          )}
+          <AddFileBtn />
+        </div>
+        <GenderData />
+        <SubTitle name={applicantForm.github.name} />
+        <PersonalDataField
+          name={applicantForm.github.input.name}
+          id={applicantForm.github.input.id}
+          type={applicantForm.github.input.type}
+          github={true}
+        />
+        <PrivacyCheckbox setIsActivePopupPrivacy={setIsActivePopupPrivacy} />
+        <button
+          className={submitButtonStyle}
+          type="submit"
+          disabled={isFormComplete ? false : true}
+        >{applicantForm.buttonName}</button>
+      </form>
+    </div>
+
   );
 }
 

@@ -34,10 +34,24 @@
 .PersonalDataField__error-message {
   position: absolute;
   left: 0;
-  bottom: -22px;
+  top: 66px;
   color: #F5222D;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 22px;
+}
+
+@media screen and (min-width: 376px) and (max-width: 740px) {
+  .PersonalDataField {
+    width: 220px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 741px) {
+  .PersonalDataField {
+    width: 256px;
+    margin: 0;
+  }
 }
