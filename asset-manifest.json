@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/applicant-form/static/css/main.24d0c013.chunk.css",
+    "main.js": "/applicant-form/static/js/main.25bb8d27.chunk.js",
+    "main.js.map": "/applicant-form/static/js/main.25bb8d27.chunk.js.map",
+    "runtime-main.js": "/applicant-form/static/js/runtime-main.9454cfae.js",
+    "runtime-main.js.map": "/applicant-form/static/js/runtime-main.9454cfae.js.map",
+    "static/js/2.bed7569a.chunk.js": "/applicant-form/static/js/2.bed7569a.chunk.js",
+    "static/js/2.bed7569a.chunk.js.map": "/applicant-form/static/js/2.bed7569a.chunk.js.map",
+    "index.html": "/applicant-form/index.html",
+    "static/css/main.24d0c013.chunk.css.map": "/applicant-form/static/css/main.24d0c013.chunk.css.map",
+    "static/js/2.bed7569a.chunk.js.LICENSE.txt": "/applicant-form/static/js/2.bed7569a.chunk.js.LICENSE.txt",
+    "static/media/addFile.9f3a9430.svg": "/applicant-form/static/media/addFile.9f3a9430.svg",
+    "static/media/addFile_error.738e1dc8.svg": "/applicant-form/static/media/addFile_error.738e1dc8.svg",
+    "static/media/PrivacyCheckbox.css": "/applicant-form/static/media/check.46dd40cf.svg",
+    "static/media/closePrivacy.a645c4f2.svg": "/applicant-form/static/media/closePrivacy.a645c4f2.svg",
+    "static/media/deleteAddedFile.6a1bf372.svg": "/applicant-form/static/media/deleteAddedFile.6a1bf372.svg",
+    "static/media/deleteAddedFile_error.e0c37153.svg": "/applicant-form/static/media/deleteAddedFile_error.e0c37153.svg",
+    "static/media/plus.cb74041d.svg": "/applicant-form/static/media/plus.cb74041d.svg",
+    "static/media/GenderData.css": "/applicant-form/static/media/radio.8c3b13cd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9454cfae.js",
+    "static/js/2.bed7569a.chunk.js",
+    "static/css/main.24d0c013.chunk.css",
+    "static/js/main.25bb8d27.chunk.js"
+  ]
+}
